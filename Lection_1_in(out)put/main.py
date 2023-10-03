@@ -33,10 +33,23 @@
 # Input: 3 4(ввод на разных строках)
 # Output: 6
 
-i = int(input('Input expected case number: '))
-j = int(input('Input current case number: '))
-if i == j: 
-    print("Impossible case")
-else: 
-    qty_cases = i + j - 1
-print (f"Sum of all cases: {qty_cases}")
+# i = int(input('Input expected case number: '))
+# j = int(input('Input current case number: '))
+# if i == j: 
+#     print("Impossible case")
+# else: 
+#     qty_cases = i + j - 1
+# print (f"Sum of all cases: {qty_cases}")
+
+# Дано натуральное число - год. Требуется определить, является ли год с данным номером високосным. 
+# Если год является високосным, то выведите YES, иначе выведите NO. 
+# Напомним, что в соответствии с григорианским календарем, 
+# год является високосным, (если его номер кратен 4, но не кратен 100), а также если он кратен 400.
+# Input: 2100
+# Output: YES
+
+year = int(input("Input year: "))
+if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 :
+    print ("Yes")
+else :
+    print ("No")
