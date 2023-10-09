@@ -24,23 +24,21 @@
 import random
 
 # initial_list = [1, 2, 3, 4, 5]
-new_list = []
-
 number = int(input('Input k for replace: '))
-new_list = [] 
 size = random.randint(0,9)
-initial_list = [random.randint(-10,10) for i in range (size)]
+initial_list = [random.randint(-100,100) for i in range (size)]
+new_list = [] 
 print(initial_list)
 
-# if number >= len(initial_list):
-#     print('Impossible for replace')
-# else:
-#     for index in range(0, len(initial_list)):
-#         if index >= number - 1:
-#             new_list.append(initial_list[index])
-#     for index in range (0, number):
-#         new_list.append(initial_list[index])
+if number >= len(initial_list):
+    print('Impossible for replace')
+else:
+    for index in range(size):
+        if index >= number - 1:
+            new_list.append(initial_list[index])
+    for index in range (number - 1): # не работает при number = 1
+        new_list.append(initial_list[index])
        
-# print(new_list)
-print ((initial_list[-number:] + initial_list[: -number]))
+print(new_list)
+# print ((initial_list[-number:] + initial_list[: -number]))
 
