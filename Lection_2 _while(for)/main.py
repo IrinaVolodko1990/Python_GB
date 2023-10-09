@@ -35,7 +35,7 @@
 # days = int(input("Input qty of days: "))
 # count = 0
 # max_pos_num = 0
-# for i in range (1, days):
+# for _ in range (1, days):
 #     num = random.randint(-50, 50)
 #     print (num)
 #     if num > 0:
@@ -53,14 +53,16 @@
 import random
 
 number = int (input("Input number: "))
-max_num = 0
-min_num = 0
-for i in range(0, number):
-    rand_num = random.randint(-67, 67)
+num = random.randint (1, 14)
+max_num = num
+min_num = num
+print (num)
+for _ in range(0, number - 1):
+    rand_num = random.randint(1, 14)
     print (rand_num)
     if rand_num > max_num:
         max_num = rand_num
     if rand_num < min_num:
         min_num = rand_num
-print(f"Min value: {min_num}")
-print(f"Max value: {max_num}")
+print(f"Min value: {min_num}, and max value {max_num}")
+
