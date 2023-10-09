@@ -30,20 +30,37 @@
 # Пользователь вводит число N (1 ≤ N ≤ 10). Далее построчно N чисел от -50 до 50. 
 # Нужно вывести наибольшее количество идущих подряд положительных чисел.
 
-import random
+# import random
 
-days = int(input("Input qty of days: "))
-count = 0
-max_pos_num = 0
-for i in range (1, days):
-    num = random.randint(-50, 50)
-    print (num)
-    if num > 0:
-        count += 1
-        if max_pos_num < count:
-            max_pos_num = count
-    else:
-        count = 0
-print (f"{max_pos_num} days in a row ")
+# days = int(input("Input qty of days: "))
+# count = 0
+# max_pos_num = 0
+# for i in range (1, days):
+#     num = random.randint(-50, 50)
+#     print (num)
+#     if num > 0:
+#         count += 1
+#         if max_pos_num < count:
+#             max_pos_num = count
+#     else:
+#         count = 0
+# print (f"{max_pos_num} days in a row ")
     
 
+# Пользователь вводит одно число N. Далее идут N чисел, записанных на новой строчке каждое. 
+# Вывести максимальное и минимальное (циклы)
+
+import random
+
+number = int (input("Input number: "))
+max_num = 0
+min_num = 0
+for i in range(0, number):
+    rand_num = random.randint(-67, 67)
+    print (rand_num)
+    if rand_num > max_num:
+        max_num = rand_num
+    if rand_num < min_num:
+        min_num = rand_num
+print(f"Min value: {min_num}")
+print(f"Max value: {max_num}")
