@@ -8,27 +8,41 @@
 # Выходные данные:
 # Программа должна вывести одно целое число - минимальное количество монеток, которые нужно перевернуть.
 
-import random
+# import random
 
-coins_size = random.randint(1, 1000)
-print (coins_size)
-coins = []
-count_zero = 0
-count_ones = 0
-# coins = list()
-# coins = [1, 0, 0, 1,0]
-for item in range(coins_size):
-    coins.append(random.randint(0,1))
-    if coins[item] == 0:
-        count_zero += 1
-    elif coins[item] == 1:
-        count_ones += 1
+# coins_size = random.randint(1, 1000)
+# print (coins_size)
+# coins = []
+# count_zero = 0
+# count_ones = 0
+# # coins = list()
+# # coins = [1, 0, 0, 1,0]
+# for item in range(coins_size):
+#     coins.append(random.randint(0,1))
+#     if coins[item] == 0:
+#         count_zero += 1
+#     elif coins[item] == 1:
+#         count_ones += 1
 
-print(count_ones, count_zero)
+# print(count_ones, count_zero)
 
-print (coins)
+# print (coins)
 
-if (count_zero >= count_ones):
-    print(count_ones)
-else:
-    print(count_zero)
+# if (count_zero >= count_ones):
+#     print(count_ones)
+# else:
+#     print(count_zero)
+
+# Петя и Катя – брат и сестра. Петя – студент, а Катя – школьница. Петя помогает Кате по математике.
+# Он задумывает два натуральных числа X и Y (X,Y≤1000), а Катя должна их отгадать. Для этого Петя 
+# делает две подсказки. Он называет сумму этих чисел S и их произведение P.
+# Помогите Кате отгадать задуманные Петей числа.
+# Примечание: числа S и P задавать не нужно, они будут передаваться в тестах. 
+# В результате вы должны вывести все возможные варианты чисел X и Y через пробел.
+
+s = int(input("Input sum of 2 numbers: "))
+p = int(input('Input multiplication of 2 numbers: '))
+for i in range(s):
+    for j in range(p):
+        if s == i + j and p == i * j:
+            print (i,j)
