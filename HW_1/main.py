@@ -1,12 +1,22 @@
 # Найдите сумму цифр трехзначного числа n.
 # Результат сохраните в перменную res.
 
-number = int (input ("Input number: "))
-hundreds = number // 100
-digits = number % 10
-tens = number % 100 // 10
-print(hundreds)
-print (tens)
-print (digits)
-res = hundreds + digits + tens
-print (f"Sum of all elements = {res}")
+# number = int (input ("Input number: "))
+# hundreds = number // 100
+# digits = number % 10
+# tens = number % 100 // 10
+# print(hundreds)
+# print (tens)
+# print (digits)
+# res = hundreds + digits + tens
+# print (f"Sum of all elements = {res}")
+
+# Петя, Катя и Сережа делают из бумаги журавликов. Вместе они сделали n журавликов.
+# Сколько журавликов сделал каждый ребенок, если известно, что Петя и Сережа сделали
+# одинаковое количество журавликов, а Катя сделала в два раза больше журавликов, 
+# чем Петя и Сережа вместе?
+# Выведите через пробел количество журавликов, сделанных Петей, Катей и Сережей.
+n = 60
+p_s = n // 6
+k = p_s * 4
+print (p_s, k, p_s)
