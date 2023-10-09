@@ -28,21 +28,37 @@
 # Вам требуется написать программу, которая проверяет счастливость билета с 
 # номером n и выводит на экран yes или no.
 
-number = int (input("Input 6-digits number: "))
-num_1 = number // 100000
-print (num_1)
-num_2 = number // 10000 % 10
-print (num_2)
-num_3 = number // 1000 % 10 
-print (num_3)
-num_4 = number // 100 % 10
-print (num_4)
-num_5 = number // 10 % 10 
-print (num_5)
-num_6 = number % 10
-print (num_6) 
-if num_1 + num_2 + num_3 == num_4 + num_5 + num_6:
-    print ("yes")
+# number = int (input("Input 6-digits number: "))
+# num_1 = number // 100000
+# print (num_1)
+# num_2 = number // 10000 % 10
+# print (num_2)
+# num_3 = number // 1000 % 10 
+# print (num_3)
+# num_4 = number // 100 % 10
+# print (num_4)
+# num_5 = number // 10 % 10 
+# print (num_5)
+# num_6 = number % 10
+# print (num_6) 
+# if num_1 + num_2 + num_3 == num_4 + num_5 + num_6:
+#     print ("yes")
+# else:
+#     print("no")
+
+# Определите, можно ли от шоколадки размером a × b долек отломить c долек, 
+# если разрешается сделать один разлом по прямой между дольками 
+# (то есть разломить шоколадку на два прямоугольника).
+
+# Выведите yes или no соответственно.
+
+a = 3
+b = 2
+c = 4
+
+if c <= a * b and (c % a == 0 or c % b == 0):
+    print ('yes')
 else:
-    print("no")
+    print ('no')
+
 
