@@ -40,9 +40,23 @@
 # Примечание: числа S и P задавать не нужно, они будут передаваться в тестах. 
 # В результате вы должны вывести все возможные варианты чисел X и Y через пробел.
 
-s = int(input("Input sum of 2 numbers: "))
-p = int(input('Input multiplication of 2 numbers: '))
-for i in range(s):
-    for j in range(p):
-        if s == i + j and p == i * j:
-            print (i,j)
+# s = int(input("Input sum of 2 numbers: "))
+# p = int(input('Input multiplication of 2 numbers: '))
+# for i in range(0, 1001): # s <= 1000
+#     for j in range(0, 1001): # p <= 1000
+#         if s == i + j and p == i * j:
+#             print (i,j)
+
+# Требуется вывести все целые степени двойки (т.е. числа вида 2k),
+# не превосходящие числа N.
+import math 
+
+num = int(input('Input some number: '))
+res = 1
+while res <= num:
+    print (res)
+    res *= 2
+    
+    
+
+
