@@ -82,3 +82,32 @@
 # Output: 2
 # Пояснение: (-1 < 5, 2 < 3)
 # Примечание: Пользователь может вводить значения списка или список задан изначально.
+
+# рандомное формирование списка
+from random import randint
+
+
+size = int(input('Input list size: '))
+initial_list = [randint(-100,100) for i in range (size)]
+print(initial_list)
+
+# initial_list = [0, -1, 5, 2, 3]
+count = 0
+# for index in range(len(initial_list) - 1):
+#     if initial_list[index] < initial_list[index + 1]:
+#         count += 1
+# print(count)
+
+new_list =[1 for index in range (len(initial_list)- 1) 
+           if initial_list[index] < initial_list[index + 1]]
+print(len(new_list))
+# идентично выводу выше
+# print(sum(new_list)) 
+
+
+# Решение задачи по замене элементов списка на новые значения
+# new_list_2 =[0 if initial_list[index] % 2 == 0
+#              else 1 
+#              for index in range (len(initial_list)) 
+#            ]
+# print(new_list_2)
