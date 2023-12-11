@@ -3,8 +3,8 @@
 
 # number = int (input ("Input number: "))
 # hundreds = number // 100
+# tens = number // 10 % 10
 # digits = number % 10
-# tens = number % 100 // 10
 # print(hundreds)
 # print (tens)
 # print (digits)
@@ -20,6 +20,7 @@
 # p_s = n // 6
 # k = p_s * 4
 # print (p_s, k, p_s)
+
 
 # Вы пользуетесь общественным транспортом? Вероятно, вы расплачивались за проезд и получали билет с номером.
 # Счастливым билетом называют такой билет с шестизначным номером, где сумма первых трех цифр равна 
@@ -52,13 +53,13 @@
 
 # Выведите yes или no соответственно.
 
-a = 3
-b = 2
-c = 4
+# a = 3
+# b = 2
+# c = 4
 
-if c <= a * b and (c % a == 0 or c % b == 0):
-    print ('yes')
-else:
-    print ('no')
+# if c <= a * b and (c % a == 0 or c % b == 0):
+#     print ('yes')
+# else:
+#     print ('no')
 
 
