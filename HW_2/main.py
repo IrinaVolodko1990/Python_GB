@@ -21,7 +21,7 @@
 #     coins.append(random.randint(0,1))
 #     if coins[item] == 0:
 #         count_zero += 1
-#     elif coins[item] == 1:
+#     else:
 #         count_ones += 1
 
 # print(count_ones, count_zero)
