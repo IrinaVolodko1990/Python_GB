@@ -5,17 +5,17 @@
 # m - кол-во элементов второго множества.
 # Затем подаются элементы каждого множества через пробел в виде строки. ! Писать input() не надо
 
-# str_sizes = str(input("Input qty of first and second set, separate it with space: "))
-# str_1 = str(input("Input elementes of first set, separate it with space: "))
-# str_2 = str(input("Input elementes of first set, separate it with space: "))
+str_sizes = str(input("Input qty of first and second set, separate it with space: "))
+str_1 = str(input("Input elementes of first set, separate it with space: "))
+str_2 = str(input("Input elementes of first set, separate it with space: "))
 
-# list_sizes = str_sizes.split()
-# set1 = set(str_1.split())
-# set2 = set(str_2.split())
+list_sizes = str_sizes.split()
+set1 = set(str_1.split())
+set2 = set(str_2.split())
 
-# set_intersection = set1.intersection(set2)
+set_intersection = set1.intersection(set2)
 
-# print(*sorted(set_intersection))
+print(*sorted(set_intersection))
 
 # 2nd option
 
@@ -62,12 +62,12 @@
 # Программа должна вывести одно целое число - максимальное количество ягод, которое может собрать
 # собирающий модуль, находясь перед некоторым кустом грядки.
 
-arr = [5, 8, 6, 4, 9, 2, 7, 3]
-max_sum = arr[-2] + arr[-1] +arr[0]
+# arr = [5, 8, 6, 4, 9, 2, 7, 3]
+# max_sum = arr[-2] + arr[-1] +arr[0]
 
-for index in range(len(arr) - 1):
-    temp_sum = arr[index - 1] + arr[index] + arr[index + 1]
-    if temp_sum > max_sum:
-        max_sum = temp_sum
+# for index in range(len(arr) - 1):
+#     temp_sum = arr[index - 1] + arr[index] + arr[index + 1]
+#     if temp_sum > max_sum:
+#         max_sum = temp_sum
 
-print(max_sum)
+# print(max_sum)
