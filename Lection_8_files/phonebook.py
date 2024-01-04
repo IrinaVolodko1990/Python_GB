@@ -8,25 +8,27 @@
 # Этапы работы:
 # 1. Создать телефонный справочник:             +
 #     - открыть файл в режиме добавления (a)    +
-# 2. Добавить контакт:
+# 2. Добавить контакт:                          +
 #     - запросить информацию о пользователя      +
 #     - перевести информацию в нужный формате    +
-#     - открыть файл в режиме добавления (a)
-#     - добавить созданный контакт в файл
-# 3. Вывод данных из файла на экран:
-#     - открыть файл в режиме чтения (r)
-#     - вывести данные на экран
-# 4. Поиск данных:
-#     - запросить варианта поиска
-#     - запросить данные для поиска
-#     - открыть файл в режиме чтения (r)
-#     - осуществить поиск по файлу
-#     - вывести нужную информацию на экран
-# 5. Реализовать UI:
+#     - открыть файл в режиме добавления (a)     +
+#     - добавить созданный контакт в файл        +
+# 3. Вывод данных из файла на экран:             +
+#     - открыть файл в режиме чтения (r)         +
+#     - вывести данные на экран                  +
+# 4. Поиск данных:                                         +
+#     - запросить варианта поиска                          +
+#     - запросить данные для поиска                        +
+#     - открыть файл в режиме чтения (r)                   +
+#     - сохранить данные в переменную                      +
+#     - осуществить поиск по файлу, используя переменную   +
+#     - вывести нужную информацию на экран                 +
+# 5. Реализовать UI:                            +
 #     - вывести варианты меню                   +
 #     - получение запроса от пользователя       +
 #     - реализация запроса пользователя         +
 #     - выход из программы                      +
+
 
 def input_name():
     return input("Введите имя: ")
@@ -55,30 +57,55 @@ def create_contact():
     phone = input_phone()
     adress = input_adress()
 
-    return f'{surname} {name} {patronymic} {phone}\n{adress}\n\n'
+    return f"{surname} {name} {patronymic} {phone}\n{adress}\n\n"
 
 
-def add_contact():
-    contact = create_contact()
-    with open ('../phonebook.txt', 'a', encoding="UTF-8") as file:
+def add_contact(contact):
+    with open("../phonebook.txt", "a", encoding="UTF-8") as file:
         file.write(contact)
-    
 
 
 def show_info():
-    pass
+    with open("../phonebook.txt", "r", encoding="UTF-8") as file:
+        print(file.read().rstrip())
 
 
 def search_contact():
-    pass
+    search_num = input("Выберите вариант поиска\n"
+                        "1. По фамилии\n"
+                        "2. По имени\n"
+                        "3. По отчеству\n"
+                        "4. По номеру телефона\n"
+                        "5. По городу проживания\n"
+                        "Ввод: ")
+
+    while search_num not in ('1', '2', '3', '4', '5'):
+        print("Данные некорректны, введите число из списка выше")
+        search_num = input('Введите вариант поиска: ')
+
+
+    index_var = int(search_num) - 1
+    search = input("Введите данные для поиска: ")
+    with open("../phonebook.txt", "r", encoding="UTF-8") as file:
+        contacts_list = file.read().rstrip().split("\n\n")
+    for contact_str in contacts_list:
+        contact_el = contact_str.replace('\n', ' ').split()
+        if search in contact_el[index_var]:
+            print(contact_str)
 
 
 def user_interface():
-    with open("../phonebook.txt", "a", encoding='UTF-8'):
+    with open("../phonebook.txt", "a", encoding="UTF-8"):
         pass
-    command = '-1'
-    while command != '4':
-        print("Меню телефонного справочника\n1. Добавить контакт\n2. Вывести на экран\n3. Поиск контакта\n4. Выход из программы")
+    command = "-1"
+    while command != "4":
+        print(
+            "Меню телефонного справочника\n"
+            "1. Добавить контакт\n"
+            "2. Вывести на экран\n"
+            "3. Поиск контакта\n"
+            "4. Выход из программы"
+        )
         command = input("Введите номер выбранного действия: ")
 
         while command not in ("1", "2", "3", "4"):
@@ -86,7 +113,7 @@ def user_interface():
             command = input("Введите номер выбранного действия: ")
 
         if command == "1":
-            add_contact()
+            add_contact(create_contact())
         elif command == "2":
             show_info()
         elif command == "3":
