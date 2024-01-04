@@ -100,18 +100,18 @@ def copy_contact():
     with open("../phonebook.txt", "r", encoding="UTF-8") as file:
         contacts_list = file.read().rstrip().split("\n\n")
 
-    for number, contact in enumerate(contacts_list, 1):
-        print(number, contact)
+    for contact in enumerate(contacts_list, 1):
+        print(*contact)
 
     copy_str = int(input("Введите номер строки для копирования: "))
+    index_str = int(copy_str) - 1
 
     if 1 > copy_str or copy_str > len(contacts_list):
         print("Данные некорректны")
         copy_str = int(input("Введите номер строки для копирования: "))
     
     with open("../copy_phonebook", "a", encoding="UTF-8") as file:
-        file.write(contacts_list[copy_str])
-    
+        file.write(contacts_list[index_str] + '\n\n')
     print('Данные успешно скопированы')
 
 
