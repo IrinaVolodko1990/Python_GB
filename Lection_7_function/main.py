@@ -53,16 +53,64 @@
 
 # print(index_max_orbit)
 
-
-def find_farthest_orbit(list_of_orbits):
-    filter_list = list(
-        filter(lambda cur_tuple: cur_tuple[0] != cur_tuple[1], list_of_orbits)
-    )
-    s_list = list(map(lambda cur_tuple: cur_tuple[0] * cur_tuple[1], filter_list))
-    max_s = max(s_list)
-    index_max_orbit = s_list.index(max_s)
-    return filter_list[index_max_orbit]
+# 2nd option
 
 
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
-print(*find_farthest_orbit(orbits))
+# def find_farthest_orbit(list_of_orbits):
+#     filter_list = list(
+#         filter(lambda cur_tuple: cur_tuple[0] != cur_tuple[1], list_of_orbits)
+#     )
+#     s_list = list(map(lambda cur_tuple: cur_tuple[0] * cur_tuple[1], filter_list))
+#     max_s = max(s_list)
+#     index_max_orbit = s_list.index(max_s)
+#     return filter_list[index_max_orbit]
+
+
+# orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+# print(*find_farthest_orbit(orbits))
+
+# Напишите функцию same_by(characteristic, objects), которая проверяет, все ли объекты имеют одинаковое значение
+# некоторой характеристики, и возвращают True, если это так. Если значение характеристики для
+# разных объектов отличается - то False. Для пустого набора объектов, функция должна возвращать True.
+# Аргумент characteristic - это функция, которая принимает объект и вычисляет его
+# характеристику.
+# Ввод:                                              Вывод:
+# values = [0, 2, 10, 6]                             same
+# if same_by(lambda x: x % 2, values):
+# print(‘same’)
+# else:
+# print(‘different’)
+
+#1th option
+
+def same_by(characteristic, objects):
+    if not objects:
+        return True
+    list_1 = list(map(characteristic, objects))
+    return all(list_1) == any(list_1)                  #1st option
+    # if all(list_1) == True or all(list_1) == False:    #alternative return
+    #     return True
+    # else:
+    #     return False
+    
+#2nd option
+
+def same_by(characteristic, objects):
+    if not objects:
+        return True
+    list_1 = set(map(characteristic, objects))
+    return len(list_1) == 1
+
+#3th option
+
+def same_by(characteristic, objects):
+    list_1 = list(filter(characteristic, objects))
+    return list_1 == objects or not list_1
+
+
+
+values = [1, 21, 101, 61]
+if same_by(lambda x: x % 2 == 0, values):
+    print("same")
+else:
+    print("different")
