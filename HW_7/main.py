@@ -9,37 +9,11 @@
 # Между элементами должен быть 1 пробел, в конце строки пробел не нужен.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# int[,] matrix = new int[number, number];  задача по таблице умножения
-
-# for (int i = 0; i < number; i++)
-# {
-#     for (int j = i; j < number; j++)
-#     {
-#         matrix[i, j] = (i + 1) * (j + 1);
-#         matrix[j, i] = (i + 1) * (j + 1);
-#     }
-# }
-
-# for (int i = 0; i < number; i++)
-# {
-#     for (int j = 0; j < number; j++)
-#     {
-#         Console.Write(matrix[i, j]);
-#         Console.Write("\t");
-#     }
-#     Console.WriteLine();
-# }
+table_list = [1,2,3],[1,2,3]
+for row in table_list:
+    for column in table_list:
+        table_list[row][column] = (row + 1) * (column + 1)
+for row in table_list:
+    for column in table_list:
+        print(table_list[row][column])
+        print('\t')

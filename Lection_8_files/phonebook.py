@@ -28,7 +28,8 @@
 #     - получение запроса от пользователя       +
 #     - реализация запроса пользователя         +
 #     - выход из программы                      +
-
+# 6. Дополнить справочник возможностью копирования данных из одного файла в другой. 
+# Пользователь вводит номер строки, которую необходимо перенести из одного файла в другой.
 
 def input_name():
     return input("Введите имя: ")
@@ -71,44 +72,65 @@ def show_info():
 
 
 def search_contact():
-    search_num = input("Выберите вариант поиска\n"
-                        "1. По фамилии\n"
-                        "2. По имени\n"
-                        "3. По отчеству\n"
-                        "4. По номеру телефона\n"
-                        "5. По городу проживания\n"
-                        "Ввод: ")
+    search_num = input(
+        "Выберите вариант поиска\n"
+        "1. По фамилии\n"
+        "2. По имени\n"
+        "3. По отчеству\n"
+        "4. По номеру телефона\n"
+        "5. По городу проживания\n"
+        "Ввод: "
+    )
 
-    while search_num not in ('1', '2', '3', '4', '5'):
+    while search_num not in ("1", "2", "3", "4", "5"):
         print("Данные некорректны, введите число из списка выше")
-        search_num = input('Введите вариант поиска: ')
-
+        search_num = input("Введите вариант поиска: ")
 
     index_var = int(search_num) - 1
     search = input("Введите данные для поиска: ")
     with open("../phonebook.txt", "r", encoding="UTF-8") as file:
         contacts_list = file.read().rstrip().split("\n\n")
     for contact_str in contacts_list:
-        contact_el = contact_str.replace('\n', ' ').split()
+        contact_el = contact_str.replace("\n", " ").split()
         if search in contact_el[index_var]:
             print(contact_str)
+
+
+def copy_contact():
+    with open("../phonebook.txt", "r", encoding="UTF-8") as file:
+        contacts_list = file.read().rstrip().split("\n\n")
+
+    for number, contact in enumerate(contacts_list, 1):
+        print(number, contact)
+
+    copy_str = int(input("Введите номер строки для копирования: "))
+
+    if 1 > copy_str or copy_str > len(contacts_list):
+        print("Данные некорректны")
+        copy_str = int(input("Введите номер строки для копирования: "))
+    
+    with open("../copy_phonebook", "a", encoding="UTF-8") as file:
+        file.write(contacts_list[copy_str])
+    
+    print('Данные успешно скопированы')
 
 
 def user_interface():
     with open("../phonebook.txt", "a", encoding="UTF-8"):
         pass
     command = "-1"
-    while command != "4":
+    while command != "5":
         print(
             "Меню телефонного справочника\n"
             "1. Добавить контакт\n"
             "2. Вывести на экран\n"
             "3. Поиск контакта\n"
-            "4. Выход из программы"
+            "4. Копирование контакта в новый файл\n"
+            "5. Выход из программы"
         )
         command = input("Введите номер выбранного действия: ")
 
-        while command not in ("1", "2", "3", "4"):
+        while command not in ("1", "2", "3", "4", "5"):
             print("Некорректные данные")
             command = input("Введите номер выбранного действия: ")
 
@@ -119,6 +141,8 @@ def user_interface():
         elif command == "3":
             search_contact()
         elif command == "4":
+            copy_contact()
+        elif command == "5":
             print("Всего хорошего!")
 
         # match command:      ##### не работает
