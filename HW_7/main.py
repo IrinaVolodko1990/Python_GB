@@ -1,4 +1,4 @@
-# Напишите функцию print_operation_table(operation, num_rows, num_columns), 
+# Напишите функцию print_operation_table(operation, num_rows, num_columns),
 # которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца.
 # По умолчанию номер столбца и строки = 9.
 # Аргументы num_rows и num_columns указывают число строк и столбцов таблицы, которые должны быть распечатаны.
@@ -9,11 +9,56 @@
 # Между элементами должен быть 1 пробел, в конце строки пробел не нужен.
 
 
-table_list = [1,2,3],[1,2,3]
-for row in table_list:
-    for column in table_list:
-        table_list[row][column] = (row + 1) * (column + 1)
-for row in table_list:
-    for column in table_list:
-        print(table_list[row][column])
-        print('\t')
+# def print_operation_table(operation, num_rows=9, num_columns=9):
+#     if num_columns <= 2 or num_rows <= 2:
+#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
+#     else:
+#         for row in range(1, num_rows + 1):
+#             for column in range(1, num_columns + 1):
+#                 if column == 1:
+#                     if column == num_columns:
+#                         print(row, end="")
+#                     else:
+#                         print(row, end=" ")
+#                 elif row == 1:
+#                     print(column, end=" ")
+#                 else:
+#                     if column == num_columns:
+#                         print(operation(row, column), end="")
+#                     else:
+#                         print(operation(row, column), end=" ")
+#             print()
+
+
+# print_operation_table(lambda x, y: x - y, 3, 3)
+
+
+# Винни-Пух попросил Вас посмотреть, есть ли в его стихах ритм. Поскольку разобраться 
+# в его кричалках не настолько просто, насколько легко он их придумывает, Вам стоит написать программу.
+
+# Винни-Пух считает, что ритм есть, если число слогов (т.е. число гласных букв)
+# в каждой фразе стихотворения одинаковое. Фраза может состоять из одного слова, 
+# если во фразе несколько слов, то они разделяются дефисами.
+# Фразы отделяются друг от друга пробелами.
+
+# Стихотворение  Винни-Пух передаст вам автоматически в переменную stroka в виде строки. 
+# В ответе напишите Парам пам-пам, если с ритмом все в порядке и Пам парам, если с ритмом все не в порядке.
+# Если фраза только одна, то ритм определить не получится и необходимо вывести: Количество фраз
+# должно быть больше одной!.
+
+def letter_counter(phrase):
+    counter = 0
+    for letter in phrase:
+        if letter in ('аоуиыэеёюя'):
+            counter += 1
+    return counter
+
+stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+phrases_list = stroka.lower().split()
+
+res = set(map(letter_counter, phrases_list))
+if len(res) == 1:
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
+
