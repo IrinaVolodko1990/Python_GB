@@ -104,7 +104,7 @@ def copy_contact():
         print(*contact)
 
     copy_str = int(input("Введите номер строки для копирования: "))
-    index_str = int(copy_str) - 1
+    index_str = copy_str - 1
 
     if 1 > copy_str or copy_str > len(contacts_list):
         print("Данные некорректны")
