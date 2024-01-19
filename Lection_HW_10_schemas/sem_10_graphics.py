@@ -132,3 +132,5 @@ df.sample(45)
 plt.figure(figsize=(13,5))
 sns.histplot(df, x = 'flipper_length_mm', hue = 'heigth_group');
 
+
+
