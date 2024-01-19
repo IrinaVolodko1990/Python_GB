@@ -56,7 +56,10 @@ def letter_counter(phrase):
 stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
 phrases_list = stroka.lower().split()
 
-res = set(map(letter_counter, phrases_list))
+if len(phrases_list) == 1:
+    print('Количество фраз должно быть больше одной!')
+
+res = set(map(letter_counter(), phrases_list))
 if len(res) == 1:
     print('Парам пам-пам')
 else:
